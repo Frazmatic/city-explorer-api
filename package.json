@@ -1,0 +1,29 @@
+{
+  "name": "city-explorer-api",
+  "version": "1.0.0",
+  "description": "Backend for City Explorer Lab",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frazmatic/city-explorer-api.git"
+  },
+  "author": "Joshua Frazer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frazmatic/city-explorer-api/issues"
+  },
+  "homepage": "https://github.com/Frazmatic/city-explorer-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.30.1"
+  }
+}
