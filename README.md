@@ -11,10 +11,13 @@ This will be a backend server intermediary which serves a front end app for mapp
 ## Getting Started
 1. Clone the repo
 2. NPM install to load dependencies
-3. [Start the Server]
+3. NPM start
+4. Requests must be pinted to the IP the server is running at.
 
 ## Architecture
 Node, Expres, Dotenv, Cors
+
+![new-explorer-diagram](https://user-images.githubusercontent.com/6252799/179876773-cf3c19c8-7bb1-4348-98db-10c4b82ef44a.png)
 
 ## Change Log
 
