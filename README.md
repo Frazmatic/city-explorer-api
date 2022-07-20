@@ -6,8 +6,6 @@
 ## Overview
 This will be a backend server intermediary which serves a front end app for mapping services. Users of the front-end app will request information about an area, and this will provide that information to the front-end.
 
-[Diagram Here]
-
 ## Getting Started
 1. Clone the repo
 2. NPM install to load dependencies
@@ -18,6 +16,7 @@ This will be a backend server intermediary which serves a front end app for mapp
 Node, Expres, Dotenv, Cors
 
 ![new-explorer-diagram](https://user-images.githubusercontent.com/6252799/179876773-cf3c19c8-7bb1-4348-98db-10c4b82ef44a.png)
+![explorer-data-diagram](https://user-images.githubusercontent.com/6252799/180028515-24f42a71-80c4-4a6e-91c0-05c17a7aec04.png)
 
 ## Change Log
 
