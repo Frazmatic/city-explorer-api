@@ -4,8 +4,8 @@
 require('dotenv').config();
 const PORT = process.env.PORT;
 
-const Forecast = require('./Forecast');
-const Movies = require('./Movies');
+const Forecast = require('./weather');
+const Movies = require('./movies');
 
 const express = require('express');
 const server = express();

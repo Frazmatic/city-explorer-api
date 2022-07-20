@@ -16,10 +16,8 @@ class Movies {
 
   static getMovies(cityName, cityExplorerRes) {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${cityName}&include_adult=false`;
-    console.log(url);
     axios.get(url)
         .then((response) => {
-          console.log(response.data.results);
           const movies = this.makeMoviesList(response.data.results);
           cityExplorerRes.send(movies);
         })
