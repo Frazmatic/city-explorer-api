@@ -18,7 +18,7 @@ class Forecast {
           cityExplorerRes.send(forecasts);
         })
         .catch((error) => {
-          response.sendStatus(404).send('City not found in weather data: ' + error);
+          cityExplorerRes.sendStatus(404).send('City not found in weather data: ' + error);
         });
   }
 

@@ -50,6 +50,7 @@ Finish time: 1543
 Actual time needed to complete: 1 hour 13 minutes
 
 ---
+
 Name of feature: 1. Weather (live): As a user of City Explorer, I want to see weather info for the city I searched, so that I know how to pack for an upcoming trip.
 
 Estimate of time needed to complete: 2 hours
@@ -61,3 +62,12 @@ Finish time: 1115
 Actual time needed to complete: 1 hour
 
 ---
+Name of feature: 2. Movies: As a user of City Explorer, I want to see info about movies related to the city I searched, so that I can learn more about the destination.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 1130
+
+Finish time: 
+
+Actual time needed to complete:

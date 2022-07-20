@@ -5,6 +5,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 
 const Forecast = require('./Forecast');
+const Movies = require('./Movies');
 
 const express = require('express');
 const server = express();
@@ -16,6 +17,11 @@ server.use(cors());
 // weather endpoint
 server.get('/weather', (req, res) => {
   Forecast.getForecasts(req.query.lat, req.query.lon, res);
+});
+
+// movies endpoint
+server.get('/movies', (req, res) => {
+  Movies.getMovies(req.query.city_name, res);
 });
 
 server.listen(PORT, () => {
