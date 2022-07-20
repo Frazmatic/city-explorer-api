@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
-/* eslint-disable no-unused-vars */
+const axios = require('axios').default;
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
 class Forecast {
   constructor(date, description) {
@@ -7,21 +9,17 @@ class Forecast {
     this.description = description;
   }
 
-  static findCity(name, lat, lon, weatherData) {
-    try {
-      const city = weatherData.find((el) => {
-        return (
-          name === el.city_name &&
-          // the lat & lon in our sample data and
-          // the locationiq are slightly different
-          Math.round(lat) === Math.round(el.lat) &&
-          Math.round(lon) === Math.round(el.lon)
-        );
-      });
-      return city;
-    } catch (err) {
-      throw new Error('No City Match in Weather Data' + err);
-    }
+  static getForecasts(lat, lon, cityExplorerRes) {
+    lat = parseFloat(lat).toFixed(3);
+    lon = parseFloat(lon).toFixed(3);
+    axios.get(`https://api.weatherbit.io/v2.0/forecast/daily/?key=${WEATHER_API_KEY}&days=3&lat=${lat}&lon=${lon}`)
+        .then((response) => {
+          const forecasts = this.makeForecasts(response.data);
+          cityExplorerRes.send(forecasts);
+        })
+        .catch((error) => {
+          response.sendStatus(404).send('City not found in weather data: ' + error);
+        });
   }
 
   static makeForecasts(city) {
