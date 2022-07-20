@@ -4,9 +4,7 @@
   "description": "Backend for City Explorer Lab",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node fileName.js",
-    "start:dev": "nodemon fileName.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
