@@ -22,3 +22,29 @@ Node, Expres, Dotenv, Cors
 
 ## Credit and Collaborations
 Partner: 
+
+---
+
+Name of feature: 1. Set up your server repository.
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1230
+
+Finish time: 1335
+
+Actual time needed to complete: 1 hour 5 minutes
+
+---
+
+Name of feature: 2. Weather (placeholder): As a user of City Explorer, I want to see weather info for the city I searched, so that I know how to pack for an upcoming trip.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 1430
+
+Finish time: 1543
+
+Actual time needed to complete: 1 hour 13 minutes
+
+---
