@@ -15,6 +15,7 @@ This will be a backend server intermediary which serves a front end app for mapp
 ## Architecture
 Node, Expres, Dotenv, Cors
 
+![Blank diagram](https://user-images.githubusercontent.com/6252799/180090048-aae10503-3289-45aa-8666-8528f0dc65e7.png)
 ![new-explorer-diagram](https://user-images.githubusercontent.com/6252799/179876773-cf3c19c8-7bb1-4348-98db-10c4b82ef44a.png)
 ![explorer-data-diagram](https://user-images.githubusercontent.com/6252799/180028515-24f42a71-80c4-4a6e-91c0-05c17a7aec04.png)
 
