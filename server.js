@@ -27,7 +27,6 @@ class Forecast {
 }
 
 function findCity(name, lat, lon, weatherData) {
-  console.log('finding city');
   try {
     const city = weatherData.find((el) => {
       return (
