@@ -12,6 +12,7 @@ const server = express();
 
 const cors = require('cors');
 server.use(cors());
+const axios = require('axios').default;
 
 // weather endpoint
 server.get('/weather', (req, res) => {
