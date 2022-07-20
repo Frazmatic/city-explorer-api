@@ -31,7 +31,7 @@ function findCity(name, lat, lon, weatherData) {
     const city = weatherData.find((el) => {
       return (
         name === el.city_name &&
-        // the lat & lon in our sample data and 
+        // the lat & lon in our sample data and
         // the locationiq are slightly different
         Math.round(lat) === Math.round(el.lat) &&
         Math.round(lon) === Math.round(el.lon)
@@ -53,6 +53,11 @@ server.get('/weather', (req, res) => {
   } else {
     res.status(404).send('City not found in weather data');
   }
+});
+
+// other error handling
+server.use('*', (error, request, response) => {
+  response.send(500).send(error + 'bad request to frazer-city-explorer-api.');
 });
 
 server.listen(PORT, () => {
