@@ -15,7 +15,7 @@ This will be a backend server intermediary which serves a front end app for mapp
 ## Architecture
 Node, Expres, Dotenv, Cors
 
-***Added image, but the WRRC hasn't changed with today's refactoring"***
+***Added image, but the WRRC hasn't changed with today's refactoring***
 ![Blank diagram](https://user-images.githubusercontent.com/6252799/180089996-506b196d-59bf-42a5-818a-e03637333ecf.png)
 ![Blank diagram](https://user-images.githubusercontent.com/6252799/180090048-aae10503-3289-45aa-8666-8528f0dc65e7.png)
 ![new-explorer-diagram](https://user-images.githubusercontent.com/6252799/179876773-cf3c19c8-7bb1-4348-98db-10c4b82ef44a.png)
@@ -71,6 +71,6 @@ Estimate of time needed to complete: 2 hours
 
 Start time: 1130
 
-Finish time: 
+Finish time: 1450
 
-Actual time needed to complete:
+Actual time needed to complete: 3 hours 20 minutes
