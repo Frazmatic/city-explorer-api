@@ -5,7 +5,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 
 const Forecast = require('./weather');
-const Movies = require('./movies');
+const getMovies = require('./movies');
 
 const express = require('express');
 const server = express();
@@ -20,9 +20,7 @@ server.get('/weather', (req, res) => {
 });
 
 // movies endpoint
-server.get('/movies', (req, res) => {
-  Movies.getMovies(req.query.city_name, res);
-});
+server.get('/movies', getMovies);
 
 server.listen(PORT, () => {
   console.log('Server is running on port :: ' + PORT);

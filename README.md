@@ -63,11 +63,24 @@ Finish time: 1115
 Actual time needed to complete: 1 hour
 
 ---
+
 Name of feature: 2. Movies: As a user of City Explorer, I want to see info about movies related to the city I searched, so that I can learn more about the destination.
 
 Estimate of time needed to complete: 2 hours
 
 Start time: 1130
+
+Finish time: 1430
+
+Actual time needed to complete: 3 hours
+
+---
+
+Name of feature: 1: Performance: As a user, I want the application to work with recent results, so that I can see info without the app doing unnecessary API calls.
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 1500
 
 Finish time: 
 

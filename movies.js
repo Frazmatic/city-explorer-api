@@ -2,6 +2,7 @@
 /* eslint-disable require-jsdoc */
 const axios = require('axios').default;
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
+const movieCache = {};
 
 class Movies {
   constructor(title, overview, averageVotes, totalVotes, imageUrl, popularity, releasedOn) {
@@ -14,20 +15,35 @@ class Movies {
     this.released_on = releasedOn;
   }
 
-  static getMovies(cityName, cityExplorerRes) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${cityName}&include_adult=false`;
-    axios.get(url)
-        .then((response) => {
-          const movies = this.makeMoviesList(response.data.results);
-          cityExplorerRes.send(movies);
-        })
-        .catch((error) => {
-          cityExplorerRes.sendStatus(404).send('City not found in movie data: ' + error);
-        });
+  static daysLimitExceed(lastRetrieved, limit) {
+    return (Date.now() - lastRetrieved)/(1000*3600*24) > limit;
   }
 
-  static makeMoviesList(movieArray) {
-    const movies = movieArray.map((movie) => {
+  static async fetchMovies(cityName) {
+    console.log('fetching movies from api');
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${cityName}&include_adult=false`;
+    return this.makeMoviesList(await axios.get(url));
+  }
+
+  static async getMovies(cityExplorerRequest, cityExplorerRes) {
+    const cityName = cityExplorerRequest.query.city_name;
+    if (!(cityName in movieCache) || Movies.daysLimitExceed(movieCache[cityName].lastRetrieved, 1)) {
+      try {
+        movieCache[cityName] = {movies: await Movies.fetchMovies(cityName), lastRetrieved: Date.now()};
+        console.log('last retrieved added');
+        console.log(movieCache[cityName].lastRetrieved);
+      } catch (error) {
+        cityExplorerRes.status(400).send('City "not found in movie data: ' + error);
+      }
+    } else {
+      console.log('retrieving movies from cache');
+    }
+    cityExplorerRes.send(movieCache[cityName].movies);
+    console.log(movieCache[cityName].lastRetrieved);
+  }
+
+  static makeMoviesList(TMDBResponse) {
+    const movies = TMDBResponse.data.results.map((movie) => {
       return new Movies(movie.original_title,
           movie.overview,
           movie.vote_average,
@@ -40,4 +56,4 @@ class Movies {
   }
 }
 
-module.exports = Movies;
+module.exports = Movies.getMovies;
