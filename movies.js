@@ -20,26 +20,21 @@ class Movies {
   }
 
   static async fetchMovies(cityName) {
-    console.log('fetching movies from api');
+    console.log('fetching new data from remote API');
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${cityName}&include_adult=false`;
     return this.makeMoviesList(await axios.get(url));
   }
 
   static async getMovies(cityExplorerRequest, cityExplorerRes) {
     const cityName = cityExplorerRequest.query.city_name;
-    if (!(cityName in movieCache) || Movies.daysLimitExceed(movieCache[cityName].lastRetrieved, 1)) {
-      try {
+    try {
+      if (!(cityName in movieCache) || Movies.daysLimitExceed(movieCache[cityName].lastRetrieved, 1)) {
         movieCache[cityName] = {movies: await Movies.fetchMovies(cityName), lastRetrieved: Date.now()};
-        console.log('last retrieved added');
-        console.log(movieCache[cityName].lastRetrieved);
-      } catch (error) {
-        cityExplorerRes.status(400).send('City "not found in movie data: ' + error);
       }
-    } else {
-      console.log('retrieving movies from cache');
+      cityExplorerRes.send(movieCache[cityName].movies);
+    } catch (error) {
+      cityExplorerRes.status(400).send('City not found in movie data: ' + error);
     }
-    cityExplorerRes.send(movieCache[cityName].movies);
-    console.log(movieCache[cityName].lastRetrieved);
   }
 
   static makeMoviesList(TMDBResponse) {
